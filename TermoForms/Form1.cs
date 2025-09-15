@@ -1,4 +1,6 @@
 ﻿using System.Drawing.Drawing2D;
+using System.Media;
+using TermoForms;
 using TermoLib;
 
 namespace Termo
@@ -16,6 +18,9 @@ namespace Termo
         private readonly Color currentCharacterBorderColor = Color.DeepSkyBlue;
         private readonly Color characterEmptyBackgroundColor = Color.White;
 
+        private const string keySoundPath = "Assets\\key_pressdown_sound.wav";
+        private readonly KeySoundPlayer soundPlayer;
+
         public Form1()
         {
             InitializeComponent();
@@ -29,25 +34,27 @@ namespace Termo
             LoadAllowedCharactersSet();
 
             LoadKeyBoardButtonList();
-            keyboardButtons!.Values.ToList().ForEach(btn => SetButtonBorderRadius(btn, 15));
+            keyboardButtons!.Values.ToList().ForEach(btn => Extensions.SetComponentBorderRadius(btn, 15));
 
             foreach (var btn in buttonsMatrix)
             {
-                SetButtonBorderRadius(btn, 15);
+                Extensions.SetComponentBorderRadius(btn, 15);
             }
 
             // Set border radius to backspace and enter buttons
-            SetButtonBorderRadius(button53, 15);
-            SetButtonBorderRadius(button60, 15);
+            Extensions.SetComponentBorderRadius(button53, 15);
+            Extensions.SetComponentBorderRadius(button60, 15);
 
             termo = new TermoLib.Termo();
+
+            soundPlayer = new KeySoundPlayer(keySoundPath);
         }
 
         private void LoadKeyBoardButtonList()
         {
             var allowCharacterString = allowedCharacters.Select(c => c.ToString()).ToHashSet();
 
-            foreach(var component in Controls)
+            foreach (var component in Controls)
             {
                 if (component is Button keyboardBtn && allowCharacterString.Contains(keyboardBtn.Text))
                 {
@@ -107,31 +114,6 @@ namespace Termo
             {
                 allowedCharacters.Add((Keys)i);
             }
-        }
-
-        private void SetButtonBorderRadius(Button btn, int radius)
-        {
-            GraphicsPath path = new GraphicsPath();
-
-            // Canto superior esquerdo
-            path.AddArc(0, 0, radius, radius, 180, 90);
-            // Linha superior
-            path.AddLine(radius, 0, btn.Width - radius, 0);
-            // Canto superior direito
-            path.AddArc(btn.Width - radius, 0, radius, radius, 270, 90);
-            // Linha direita
-            path.AddLine(btn.Width, radius, btn.Width, btn.Height - radius);
-            // Canto inferior direito
-            path.AddArc(btn.Width - radius, btn.Height - radius, radius, radius, 0, 90);
-            // Linha inferior
-            path.AddLine(btn.Width - radius, btn.Height, radius, btn.Height);
-            // Canto inferior esquerdo
-            path.AddArc(0, btn.Height - radius, radius, radius, 90, 90);
-            // Linha esquerda
-            path.AddLine(0, btn.Height - radius, 0, radius);
-
-            path.CloseFigure();
-            btn.Region = new Region(path);
         }
 
         private void ChangeCurrentColumnInputPosition(Keys key)
@@ -284,6 +266,23 @@ namespace Termo
             };
         }
 
+        private void PlayKeySound()
+        {
+            //soundPlayer.PlayKeySound();
+
+            using var player = new SoundPlayer(keySoundPath);
+
+            player.Play();
+        }
+
+        private void ShowMatchsInformationCard()
+        {
+            using CardForm card = new CardForm();
+            
+                // Exibe o card como modal
+            DialogResult result = card.ShowDialog(this);
+        }
+
         private bool IsLineFilled()
         {
             for (int i = 0; i < 5; i++)
@@ -338,6 +337,8 @@ namespace Termo
 
         private void EndMatch()
         {
+            ShowMatchsInformationCard();
+
             foreach (var btn in buttonsMatrix)
             {
                 btn.Enabled = true;
@@ -354,7 +355,7 @@ namespace Termo
             {
                 //btn.FlatAppearance.BorderColor = Color.FromArgb(33, 33, 33);
                 btn.BackColor = Color.FromArgb(224, 224, 224);
-                btn.ForeColor = Color.FromArgb(33, 33, 33); 
+                btn.ForeColor = Color.FromArgb(33, 33, 33);
             }
 
             currentCharacter = 0;
@@ -366,6 +367,8 @@ namespace Termo
         // Método para capturar enter
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            PlayKeySound();
+
             if (keyData == Keys.Enter && IsLineFilled())
             {
                 if (CheckWordsMatch())
@@ -394,6 +397,8 @@ namespace Termo
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            PlayKeySound();
+
             if (allowedCharacters.Contains(e.KeyCode))
             {
                 AddLetter(e.KeyCode.ToString());
@@ -406,6 +411,8 @@ namespace Termo
 
         private void VirtualKeyboard_Enter_Click(object sender, EventArgs e)
         {
+            PlayKeySound();
+
             if (CheckWordsMatch())
             {
                 MessageBox.Show("Parabéns, você acertou a palavra!");
@@ -421,8 +428,11 @@ namespace Termo
                 ChangeCurrentLine();
             }
         }
+
         private void VirtualKeyboard_Letter_Click(object sender, EventArgs e)
         {
+            PlayKeySound();
+
             Button letter = (Button)sender;
 
             AddLetter(letter.Text);
@@ -430,6 +440,8 @@ namespace Termo
 
         private void VirtualKeyboard_BackSpace_Click(object sender, EventArgs e)
         {
+            PlayKeySound();
+
             CleanInputPosition();
         }
 
@@ -439,5 +451,6 @@ namespace Termo
 
             tutorial.ShowDialog();
         }
+
     }
 }
