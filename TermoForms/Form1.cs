@@ -45,9 +45,12 @@ namespace Termo
             Extensions.SetComponentBorderRadius(button53, 15);
             Extensions.SetComponentBorderRadius(button60, 15);
 
+            // Set border radius to show match info button
+            Extensions.SetComponentBorderRadius(btnMatchInfo, 15);
+
             termo = new TermoLib.Termo();
 
-            soundPlayer = new KeySoundPlayer(keySoundPath);
+            //soundPlayer = new KeySoundPlayer(keySoundPath);
         }
 
         private void LoadKeyBoardButtonList()
@@ -278,8 +281,8 @@ namespace Termo
         private void ShowMatchsInformationCard()
         {
             using CardForm card = new CardForm();
-            
-                // Exibe o card como modal
+
+            // Exibe o card como modal
             DialogResult result = card.ShowDialog(this);
         }
 
@@ -452,5 +455,9 @@ namespace Termo
             tutorial.ShowDialog();
         }
 
+        private void BtnShowMatchInfo_Click(object sender, EventArgs e)
+        {
+            ShowMatchsInformationCard();
+        }
     }
 }

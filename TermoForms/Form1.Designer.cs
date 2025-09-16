@@ -87,6 +87,7 @@
             button59 = new Button();
             button60 = new Button();
             button53 = new Button();
+            btnMatchInfo = new Button();
             SuspendLayout();
             // 
             // label1
@@ -968,12 +969,28 @@
             button53.UseVisualStyleBackColor = false;
             button53.Click += VirtualKeyboard_BackSpace_Click;
             // 
+            // btnMatchInfo
+            // 
+            btnMatchInfo.BackColor = Color.DeepSkyBlue;
+            btnMatchInfo.FlatAppearance.BorderColor = Color.DeepSkyBlue;
+            btnMatchInfo.FlatAppearance.BorderSize = 4;
+            btnMatchInfo.FlatStyle = FlatStyle.Flat;
+            btnMatchInfo.Font = new Font("Segoe UI", 10F);
+            btnMatchInfo.Location = new Point(687, 19);
+            btnMatchInfo.Name = "btnMatchInfo";
+            btnMatchInfo.Size = new Size(45, 38);
+            btnMatchInfo.TabIndex = 61;
+            btnMatchInfo.Text = "☰";
+            btnMatchInfo.UseVisualStyleBackColor = false;
+            btnMatchInfo.Click += BtnShowMatchInfo_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 33, 33);
             ClientSize = new Size(761, 935);
+            Controls.Add(btnMatchInfo);
             Controls.Add(button21);
             Controls.Add(button47);
             Controls.Add(button1);
@@ -1106,5 +1123,6 @@
         private Button button60;
         private Button button53;
         private Label label3;
+        private Button btnMatchInfo;
     }
 }
