@@ -88,6 +88,8 @@
             button60 = new Button();
             button53 = new Button();
             btnMatchInfo = new Button();
+            button55 = new Button();
+            lblWL = new Label();
             SuspendLayout();
             // 
             // label1
@@ -1043,12 +1045,40 @@
             btnMatchInfo.UseVisualStyleBackColor = false;
             btnMatchInfo.Click += BtnShowMatchInfo_Click;
             // 
+            // button55
+            // 
+            button55.BackColor = Color.DeepSkyBlue;
+            button55.FlatAppearance.BorderColor = Color.DeepSkyBlue;
+            button55.FlatAppearance.BorderSize = 4;
+            button55.FlatStyle = FlatStyle.Flat;
+            button55.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button55.Location = new Point(12, 11);
+            button55.Margin = new Padding(3, 2, 3, 2);
+            button55.Name = "button55";
+            button55.Size = new Size(40, 40);
+            button55.TabIndex = 62;
+            button55.Text = "⟳";
+            button55.UseVisualStyleBackColor = false;
+            button55.Click += button55_Click;
+            // 
+            // lblWL
+            // 
+            lblWL.AutoSize = true;
+            lblWL.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWL.ForeColor = Color.White;
+            lblWL.Location = new Point(251, 467);
+            lblWL.Name = "lblWL";
+            lblWL.Size = new Size(0, 32);
+            lblWL.TabIndex = 63;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 33, 33);
             ClientSize = new Size(575, 701);
+            Controls.Add(lblWL);
+            Controls.Add(button55);
             Controls.Add(btnMatchInfo);
             Controls.Add(button21);
             Controls.Add(button47);
@@ -1185,5 +1215,7 @@
         private Button button53;
         private Label label3;
         private Button btnMatchInfo;
+        private Button button55;
+        private Label lblWL;
     }
 }

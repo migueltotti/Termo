@@ -11,6 +11,7 @@ namespace Termo
         private Button[,] buttonsMatrix = new Button[6, 5];
         private HashSet<Keys> allowedCharacters = new HashSet<Keys>();
         private TermoLib.Termo termo;
+        private ConfettiManager confettiManager;
 
         private int currentWord = 0;
         private int currentCharacter = 0;
@@ -24,6 +25,7 @@ namespace Termo
         public Form1()
         {
             InitializeComponent();
+            InitializeForm();
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -44,6 +46,7 @@ namespace Termo
             // Set border radius to backspace and enter buttons
             Extensions.SetComponentBorderRadius(button53, 15);
             Extensions.SetComponentBorderRadius(button60, 15);
+            Extensions.SetComponentBorderRadius(button55, 15);
 
             // Set border radius to show match info button
             Extensions.SetComponentBorderRadius(btnMatchInfo, 15);
@@ -51,6 +54,25 @@ namespace Termo
             termo = new TermoLib.Termo();
 
             //soundPlayer = new KeySoundPlayer(keySoundPath);
+        }
+
+        private void InitializeForm()
+        {
+            // Criar o gerenciador de confetes
+            confettiManager = new ConfettiManager(this);
+
+            // Habilitar double buffering para reduzir flickering
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.UserPaint |
+                          ControlStyles.DoubleBuffer, true);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Desenhar os confetes
+            confettiManager.Draw(e.Graphics);
         }
 
         private void LoadKeyBoardButtonList()
@@ -340,7 +362,7 @@ namespace Termo
 
         private void EndMatch()
         {
-            ShowMatchsInformationCard();
+            //ShowMatchsInformationCard();
 
             foreach (var btn in buttonsMatrix)
             {
@@ -361,6 +383,8 @@ namespace Termo
                 btn.ForeColor = Color.FromArgb(33, 33, 33);
             }
 
+            lblWL.Text = "";
+
             currentCharacter = 0;
             currentWord = 0;
 
@@ -376,13 +400,18 @@ namespace Termo
             {
                 if (CheckWordsMatch())
                 {
-                    MessageBox.Show("Parabéns, você acertou a palavra!");
-                    EndMatch();
+                    //MessageBox.Show("Parabéns, você acertou a palavra!");
+                    confettiManager.StartAnimation(125);
+                    lblWL.Text = "Vitória";
+                    lblWL.ForeColor = ColorTranslator.FromHtml("#388E3C");
+                    //EndMatch();
                 }
                 else if (currentWord == 5)
                 {
                     MessageBox.Show($"Você errou, a palavra certa era: {termo.DrawedWord}");
-                    EndMatch();
+                    lblWL.Text = "Derrota";
+                    lblWL.ForeColor = Color.Red;
+                    //EndMatch();
                 }
                 else
                 {
@@ -415,16 +444,22 @@ namespace Termo
         private void VirtualKeyboard_Enter_Click(object sender, EventArgs e)
         {
             PlayKeySound();
-            if (IsLineFilled()) {
+            if (IsLineFilled())
+            {
                 if (CheckWordsMatch())
                 {
-                    MessageBox.Show("Parabéns, você acertou a palavra!");
-                    EndMatch();
+                    //MessageBox.Show("Parabéns, você acertou a palavra!");
+                    confettiManager.StartAnimation(125);
+                    lblWL.Text = "Vitória";
+                    lblWL.ForeColor = ColorTranslator.FromHtml("#388E3C");
+                    //EndMatch();
                 }
                 else if (currentWord == 5)
                 {
                     MessageBox.Show($"Você errou, a palavra certa era: {termo.DrawedWord}");
-                    EndMatch();
+                    lblWL.Text = "Derrota";
+                    lblWL.ForeColor = Color.Red;
+                    //EndMatch();
                 }
                 else if (IsLineFilled())
                 {
@@ -459,6 +494,11 @@ namespace Termo
         private void BtnShowMatchInfo_Click(object sender, EventArgs e)
         {
             ShowMatchsInformationCard();
+        }
+
+        private void button55_Click(object sender, EventArgs e)
+        {
+            EndMatch();
         }
     }
 }
