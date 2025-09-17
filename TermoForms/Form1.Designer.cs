@@ -95,9 +95,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DeepSkyBlue;
-            label1.Location = new Point(288, 19);
+            label1.Location = new Point(239, 11);
             label1.Name = "label1";
-            label1.Size = new Size(181, 52);
+            label1.Size = new Size(142, 39);
             label1.TabIndex = 0;
             label1.Text = "TERMO";
             // 
@@ -109,9 +109,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(497, 88);
+            button1.Location = new Point(402, 69);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(69, 80);
+            button1.Size = new Size(60, 60);
             button1.TabIndex = 3;
             button1.UseVisualStyleBackColor = false;
             // 
@@ -123,9 +124,10 @@
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(421, 88);
+            button2.Location = new Point(335, 69);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(69, 80);
+            button2.Size = new Size(60, 60);
             button2.TabIndex = 4;
             button2.UseVisualStyleBackColor = false;
             // 
@@ -137,9 +139,10 @@
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button3.ForeColor = Color.White;
-            button3.Location = new Point(345, 88);
+            button3.Location = new Point(269, 69);
+            button3.Margin = new Padding(3, 2, 3, 2);
             button3.Name = "button3";
-            button3.Size = new Size(69, 80);
+            button3.Size = new Size(60, 60);
             button3.TabIndex = 6;
             button3.UseVisualStyleBackColor = false;
             // 
@@ -151,9 +154,10 @@
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button4.ForeColor = Color.White;
-            button4.Location = new Point(270, 88);
+            button4.Location = new Point(203, 69);
+            button4.Margin = new Padding(3, 2, 3, 2);
             button4.Name = "button4";
-            button4.Size = new Size(69, 80);
+            button4.Size = new Size(60, 60);
             button4.TabIndex = 5;
             button4.UseVisualStyleBackColor = false;
             // 
@@ -165,9 +169,10 @@
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button5.ForeColor = Color.White;
-            button5.Location = new Point(193, 88);
+            button5.Location = new Point(136, 69);
+            button5.Margin = new Padding(3, 2, 3, 2);
             button5.Name = "button5";
-            button5.Size = new Size(69, 80);
+            button5.Size = new Size(60, 60);
             button5.TabIndex = 7;
             button5.UseVisualStyleBackColor = false;
             // 
@@ -179,9 +184,10 @@
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button6.ForeColor = Color.White;
-            button6.Location = new Point(497, 173);
+            button6.Location = new Point(402, 133);
+            button6.Margin = new Padding(3, 2, 3, 2);
             button6.Name = "button6";
-            button6.Size = new Size(69, 80);
+            button6.Size = new Size(60, 60);
             button6.TabIndex = 12;
             button6.UseVisualStyleBackColor = false;
             // 
@@ -193,9 +199,10 @@
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button7.ForeColor = Color.White;
-            button7.Location = new Point(422, 173);
+            button7.Location = new Point(336, 133);
+            button7.Margin = new Padding(3, 2, 3, 2);
             button7.Name = "button7";
-            button7.Size = new Size(69, 80);
+            button7.Size = new Size(60, 60);
             button7.TabIndex = 11;
             button7.UseVisualStyleBackColor = false;
             // 
@@ -207,9 +214,10 @@
             button8.FlatStyle = FlatStyle.Flat;
             button8.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button8.ForeColor = Color.White;
-            button8.Location = new Point(345, 173);
+            button8.Location = new Point(269, 133);
+            button8.Margin = new Padding(3, 2, 3, 2);
             button8.Name = "button8";
-            button8.Size = new Size(69, 80);
+            button8.Size = new Size(60, 60);
             button8.TabIndex = 10;
             button8.UseVisualStyleBackColor = false;
             // 
@@ -221,9 +229,10 @@
             button9.FlatStyle = FlatStyle.Flat;
             button9.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button9.ForeColor = Color.White;
-            button9.Location = new Point(270, 173);
+            button9.Location = new Point(203, 133);
+            button9.Margin = new Padding(3, 2, 3, 2);
             button9.Name = "button9";
-            button9.Size = new Size(69, 80);
+            button9.Size = new Size(60, 60);
             button9.TabIndex = 9;
             button9.UseVisualStyleBackColor = false;
             // 
@@ -235,9 +244,10 @@
             button10.FlatStyle = FlatStyle.Flat;
             button10.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button10.ForeColor = Color.White;
-            button10.Location = new Point(193, 173);
+            button10.Location = new Point(136, 133);
+            button10.Margin = new Padding(3, 2, 3, 2);
             button10.Name = "button10";
-            button10.Size = new Size(69, 80);
+            button10.Size = new Size(60, 60);
             button10.TabIndex = 8;
             button10.UseVisualStyleBackColor = false;
             // 
@@ -249,9 +259,10 @@
             button11.FlatStyle = FlatStyle.Flat;
             button11.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button11.ForeColor = Color.White;
-            button11.Location = new Point(497, 259);
+            button11.Location = new Point(402, 197);
+            button11.Margin = new Padding(3, 2, 3, 2);
             button11.Name = "button11";
-            button11.Size = new Size(69, 80);
+            button11.Size = new Size(60, 60);
             button11.TabIndex = 17;
             button11.UseVisualStyleBackColor = false;
             // 
@@ -263,9 +274,10 @@
             button12.FlatStyle = FlatStyle.Flat;
             button12.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button12.ForeColor = Color.White;
-            button12.Location = new Point(421, 259);
+            button12.Location = new Point(335, 197);
+            button12.Margin = new Padding(3, 2, 3, 2);
             button12.Name = "button12";
-            button12.Size = new Size(69, 80);
+            button12.Size = new Size(60, 60);
             button12.TabIndex = 16;
             button12.UseVisualStyleBackColor = false;
             // 
@@ -277,9 +289,10 @@
             button13.FlatStyle = FlatStyle.Flat;
             button13.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button13.ForeColor = Color.White;
-            button13.Location = new Point(345, 259);
+            button13.Location = new Point(269, 197);
+            button13.Margin = new Padding(3, 2, 3, 2);
             button13.Name = "button13";
-            button13.Size = new Size(69, 80);
+            button13.Size = new Size(60, 60);
             button13.TabIndex = 15;
             button13.UseVisualStyleBackColor = false;
             // 
@@ -291,9 +304,10 @@
             button14.FlatStyle = FlatStyle.Flat;
             button14.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button14.ForeColor = Color.White;
-            button14.Location = new Point(267, 259);
+            button14.Location = new Point(201, 197);
+            button14.Margin = new Padding(3, 2, 3, 2);
             button14.Name = "button14";
-            button14.Size = new Size(69, 80);
+            button14.Size = new Size(60, 60);
             button14.TabIndex = 14;
             button14.UseVisualStyleBackColor = false;
             // 
@@ -305,9 +319,10 @@
             button15.FlatStyle = FlatStyle.Flat;
             button15.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button15.ForeColor = Color.White;
-            button15.Location = new Point(193, 259);
+            button15.Location = new Point(136, 197);
+            button15.Margin = new Padding(3, 2, 3, 2);
             button15.Name = "button15";
-            button15.Size = new Size(69, 80);
+            button15.Size = new Size(60, 60);
             button15.TabIndex = 13;
             button15.UseVisualStyleBackColor = false;
             // 
@@ -319,9 +334,10 @@
             button16.FlatStyle = FlatStyle.Flat;
             button16.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button16.ForeColor = Color.White;
-            button16.Location = new Point(497, 344);
+            button16.Location = new Point(402, 261);
+            button16.Margin = new Padding(3, 2, 3, 2);
             button16.Name = "button16";
-            button16.Size = new Size(69, 80);
+            button16.Size = new Size(60, 60);
             button16.TabIndex = 22;
             button16.UseVisualStyleBackColor = false;
             // 
@@ -333,9 +349,10 @@
             button17.FlatStyle = FlatStyle.Flat;
             button17.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button17.ForeColor = Color.White;
-            button17.Location = new Point(421, 344);
+            button17.Location = new Point(335, 261);
+            button17.Margin = new Padding(3, 2, 3, 2);
             button17.Name = "button17";
-            button17.Size = new Size(69, 80);
+            button17.Size = new Size(60, 60);
             button17.TabIndex = 21;
             button17.UseVisualStyleBackColor = false;
             // 
@@ -347,9 +364,10 @@
             button18.FlatStyle = FlatStyle.Flat;
             button18.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button18.ForeColor = Color.White;
-            button18.Location = new Point(345, 344);
+            button18.Location = new Point(269, 261);
+            button18.Margin = new Padding(3, 2, 3, 2);
             button18.Name = "button18";
-            button18.Size = new Size(69, 80);
+            button18.Size = new Size(60, 60);
             button18.TabIndex = 20;
             button18.UseVisualStyleBackColor = false;
             // 
@@ -361,9 +379,10 @@
             button19.FlatStyle = FlatStyle.Flat;
             button19.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button19.ForeColor = Color.White;
-            button19.Location = new Point(267, 344);
+            button19.Location = new Point(201, 261);
+            button19.Margin = new Padding(3, 2, 3, 2);
             button19.Name = "button19";
-            button19.Size = new Size(69, 80);
+            button19.Size = new Size(60, 60);
             button19.TabIndex = 19;
             button19.UseVisualStyleBackColor = false;
             // 
@@ -375,9 +394,10 @@
             button20.FlatStyle = FlatStyle.Flat;
             button20.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button20.ForeColor = Color.White;
-            button20.Location = new Point(193, 344);
+            button20.Location = new Point(136, 261);
+            button20.Margin = new Padding(3, 2, 3, 2);
             button20.Name = "button20";
-            button20.Size = new Size(69, 80);
+            button20.Size = new Size(60, 60);
             button20.TabIndex = 18;
             button20.UseVisualStyleBackColor = false;
             // 
@@ -389,9 +409,10 @@
             button21.FlatStyle = FlatStyle.Flat;
             button21.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button21.ForeColor = Color.White;
-            button21.Location = new Point(497, 429);
+            button21.Location = new Point(402, 325);
+            button21.Margin = new Padding(3, 2, 3, 2);
             button21.Name = "button21";
-            button21.Size = new Size(69, 80);
+            button21.Size = new Size(60, 60);
             button21.TabIndex = 27;
             button21.UseVisualStyleBackColor = false;
             // 
@@ -403,9 +424,10 @@
             button22.FlatStyle = FlatStyle.Flat;
             button22.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button22.ForeColor = Color.White;
-            button22.Location = new Point(421, 429);
+            button22.Location = new Point(335, 325);
+            button22.Margin = new Padding(3, 2, 3, 2);
             button22.Name = "button22";
-            button22.Size = new Size(69, 80);
+            button22.Size = new Size(60, 60);
             button22.TabIndex = 26;
             button22.UseVisualStyleBackColor = false;
             // 
@@ -417,9 +439,10 @@
             button23.FlatStyle = FlatStyle.Flat;
             button23.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button23.ForeColor = Color.White;
-            button23.Location = new Point(345, 429);
+            button23.Location = new Point(269, 325);
+            button23.Margin = new Padding(3, 2, 3, 2);
             button23.Name = "button23";
-            button23.Size = new Size(69, 80);
+            button23.Size = new Size(60, 60);
             button23.TabIndex = 25;
             button23.UseVisualStyleBackColor = false;
             // 
@@ -431,9 +454,10 @@
             button24.FlatStyle = FlatStyle.Flat;
             button24.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button24.ForeColor = Color.White;
-            button24.Location = new Point(267, 429);
+            button24.Location = new Point(201, 325);
+            button24.Margin = new Padding(3, 2, 3, 2);
             button24.Name = "button24";
-            button24.Size = new Size(69, 80);
+            button24.Size = new Size(60, 60);
             button24.TabIndex = 24;
             button24.UseVisualStyleBackColor = false;
             // 
@@ -445,9 +469,10 @@
             button25.FlatStyle = FlatStyle.Flat;
             button25.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button25.ForeColor = Color.White;
-            button25.Location = new Point(193, 429);
+            button25.Location = new Point(136, 325);
+            button25.Margin = new Padding(3, 2, 3, 2);
             button25.Name = "button25";
-            button25.Size = new Size(69, 80);
+            button25.Size = new Size(60, 60);
             button25.TabIndex = 23;
             button25.UseVisualStyleBackColor = false;
             // 
@@ -459,9 +484,10 @@
             button26.FlatStyle = FlatStyle.Flat;
             button26.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button26.ForeColor = Color.White;
-            button26.Location = new Point(497, 515);
+            button26.Location = new Point(402, 389);
+            button26.Margin = new Padding(3, 2, 3, 2);
             button26.Name = "button26";
-            button26.Size = new Size(69, 80);
+            button26.Size = new Size(60, 60);
             button26.TabIndex = 32;
             button26.UseVisualStyleBackColor = false;
             // 
@@ -473,9 +499,10 @@
             button27.FlatStyle = FlatStyle.Flat;
             button27.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button27.ForeColor = Color.White;
-            button27.Location = new Point(421, 515);
+            button27.Location = new Point(335, 389);
+            button27.Margin = new Padding(3, 2, 3, 2);
             button27.Name = "button27";
-            button27.Size = new Size(69, 80);
+            button27.Size = new Size(60, 60);
             button27.TabIndex = 31;
             button27.UseVisualStyleBackColor = false;
             // 
@@ -487,9 +514,10 @@
             button28.FlatStyle = FlatStyle.Flat;
             button28.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button28.ForeColor = Color.White;
-            button28.Location = new Point(345, 515);
+            button28.Location = new Point(269, 389);
+            button28.Margin = new Padding(3, 2, 3, 2);
             button28.Name = "button28";
-            button28.Size = new Size(69, 80);
+            button28.Size = new Size(60, 60);
             button28.TabIndex = 30;
             button28.UseVisualStyleBackColor = false;
             // 
@@ -501,9 +529,10 @@
             button29.FlatStyle = FlatStyle.Flat;
             button29.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button29.ForeColor = Color.White;
-            button29.Location = new Point(267, 515);
+            button29.Location = new Point(201, 389);
+            button29.Margin = new Padding(3, 2, 3, 2);
             button29.Name = "button29";
-            button29.Size = new Size(69, 80);
+            button29.Size = new Size(60, 60);
             button29.TabIndex = 29;
             button29.UseVisualStyleBackColor = false;
             // 
@@ -515,9 +544,10 @@
             button30.FlatStyle = FlatStyle.Flat;
             button30.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
             button30.ForeColor = Color.White;
-            button30.Location = new Point(193, 515);
+            button30.Location = new Point(136, 389);
+            button30.Margin = new Padding(3, 2, 3, 2);
             button30.Name = "button30";
-            button30.Size = new Size(69, 80);
+            button30.Size = new Size(60, 60);
             button30.TabIndex = 28;
             button30.UseVisualStyleBackColor = false;
             // 
@@ -529,9 +559,10 @@
             button31.FlatStyle = FlatStyle.Flat;
             button31.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button31.ForeColor = Color.FromArgb(51, 51, 51);
-            button31.Location = new Point(122, 639);
+            button31.Location = new Point(65, 518);
+            button31.Margin = new Padding(3, 2, 3, 2);
             button31.Name = "button31";
-            button31.Size = new Size(46, 53);
+            button31.Size = new Size(40, 40);
             button31.TabIndex = 33;
             button31.Text = "Q";
             button31.UseVisualStyleBackColor = false;
@@ -545,9 +576,10 @@
             button32.FlatStyle = FlatStyle.Flat;
             button32.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button32.ForeColor = Color.FromArgb(51, 51, 51);
-            button32.Location = new Point(175, 639);
+            button32.Location = new Point(111, 518);
+            button32.Margin = new Padding(3, 2, 3, 2);
             button32.Name = "button32";
-            button32.Size = new Size(46, 53);
+            button32.Size = new Size(40, 40);
             button32.TabIndex = 34;
             button32.Text = "W";
             button32.UseVisualStyleBackColor = false;
@@ -561,9 +593,10 @@
             button33.FlatStyle = FlatStyle.Flat;
             button33.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button33.ForeColor = Color.FromArgb(51, 51, 51);
-            button33.Location = new Point(229, 639);
+            button33.Location = new Point(158, 518);
+            button33.Margin = new Padding(3, 2, 3, 2);
             button33.Name = "button33";
-            button33.Size = new Size(46, 53);
+            button33.Size = new Size(40, 40);
             button33.TabIndex = 35;
             button33.Text = "E";
             button33.UseVisualStyleBackColor = false;
@@ -577,9 +610,10 @@
             button34.FlatStyle = FlatStyle.Flat;
             button34.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button34.ForeColor = Color.FromArgb(51, 51, 51);
-            button34.Location = new Point(280, 639);
+            button34.Location = new Point(203, 518);
+            button34.Margin = new Padding(3, 2, 3, 2);
             button34.Name = "button34";
-            button34.Size = new Size(46, 53);
+            button34.Size = new Size(40, 40);
             button34.TabIndex = 36;
             button34.Text = "R";
             button34.UseVisualStyleBackColor = false;
@@ -593,9 +627,10 @@
             button35.FlatStyle = FlatStyle.Flat;
             button35.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button35.ForeColor = Color.FromArgb(51, 51, 51);
-            button35.Location = new Point(333, 639);
+            button35.Location = new Point(249, 518);
+            button35.Margin = new Padding(3, 2, 3, 2);
             button35.Name = "button35";
-            button35.Size = new Size(46, 53);
+            button35.Size = new Size(40, 40);
             button35.TabIndex = 37;
             button35.Text = "T";
             button35.UseVisualStyleBackColor = false;
@@ -609,9 +644,10 @@
             button36.FlatStyle = FlatStyle.Flat;
             button36.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button36.ForeColor = Color.FromArgb(51, 51, 51);
-            button36.Location = new Point(385, 639);
+            button36.Location = new Point(295, 518);
+            button36.Margin = new Padding(3, 2, 3, 2);
             button36.Name = "button36";
-            button36.Size = new Size(46, 53);
+            button36.Size = new Size(40, 40);
             button36.TabIndex = 38;
             button36.Text = "Y";
             button36.UseVisualStyleBackColor = false;
@@ -625,9 +661,10 @@
             button37.FlatStyle = FlatStyle.Flat;
             button37.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button37.ForeColor = Color.FromArgb(51, 51, 51);
-            button37.Location = new Point(438, 639);
+            button37.Location = new Point(341, 518);
+            button37.Margin = new Padding(3, 2, 3, 2);
             button37.Name = "button37";
-            button37.Size = new Size(46, 53);
+            button37.Size = new Size(40, 40);
             button37.TabIndex = 39;
             button37.Text = "U";
             button37.UseVisualStyleBackColor = false;
@@ -641,9 +678,10 @@
             button38.FlatStyle = FlatStyle.Flat;
             button38.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button38.ForeColor = Color.FromArgb(51, 51, 51);
-            button38.Location = new Point(490, 639);
+            button38.Location = new Point(387, 518);
+            button38.Margin = new Padding(3, 2, 3, 2);
             button38.Name = "button38";
-            button38.Size = new Size(46, 53);
+            button38.Size = new Size(40, 40);
             button38.TabIndex = 40;
             button38.Text = "I";
             button38.UseVisualStyleBackColor = false;
@@ -657,9 +695,10 @@
             button39.FlatStyle = FlatStyle.Flat;
             button39.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button39.ForeColor = Color.FromArgb(51, 51, 51);
-            button39.Location = new Point(543, 639);
+            button39.Location = new Point(433, 518);
+            button39.Margin = new Padding(3, 2, 3, 2);
             button39.Name = "button39";
-            button39.Size = new Size(46, 53);
+            button39.Size = new Size(40, 40);
             button39.TabIndex = 41;
             button39.Text = "O";
             button39.UseVisualStyleBackColor = false;
@@ -673,9 +712,10 @@
             button40.FlatStyle = FlatStyle.Flat;
             button40.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button40.ForeColor = Color.FromArgb(51, 51, 51);
-            button40.Location = new Point(597, 639);
+            button40.Location = new Point(480, 518);
+            button40.Margin = new Padding(3, 2, 3, 2);
             button40.Name = "button40";
-            button40.Size = new Size(46, 53);
+            button40.Size = new Size(40, 40);
             button40.TabIndex = 42;
             button40.Text = "P";
             button40.UseVisualStyleBackColor = false;
@@ -689,9 +729,10 @@
             button41.FlatStyle = FlatStyle.Flat;
             button41.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button41.ForeColor = Color.FromArgb(51, 51, 51);
-            button41.Location = new Point(152, 699);
+            button41.Location = new Point(91, 563);
+            button41.Margin = new Padding(3, 2, 3, 2);
             button41.Name = "button41";
-            button41.Size = new Size(46, 53);
+            button41.Size = new Size(40, 40);
             button41.TabIndex = 43;
             button41.Text = "A";
             button41.UseVisualStyleBackColor = false;
@@ -705,9 +746,10 @@
             button42.FlatStyle = FlatStyle.Flat;
             button42.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button42.ForeColor = Color.FromArgb(51, 51, 51);
-            button42.Location = new Point(205, 699);
+            button42.Location = new Point(137, 563);
+            button42.Margin = new Padding(3, 2, 3, 2);
             button42.Name = "button42";
-            button42.Size = new Size(46, 53);
+            button42.Size = new Size(40, 40);
             button42.TabIndex = 44;
             button42.Text = "S";
             button42.UseVisualStyleBackColor = false;
@@ -721,9 +763,10 @@
             button43.FlatStyle = FlatStyle.Flat;
             button43.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button43.ForeColor = Color.FromArgb(51, 51, 51);
-            button43.Location = new Point(257, 699);
+            button43.Location = new Point(183, 563);
+            button43.Margin = new Padding(3, 2, 3, 2);
             button43.Name = "button43";
-            button43.Size = new Size(46, 53);
+            button43.Size = new Size(40, 40);
             button43.TabIndex = 45;
             button43.Text = "D";
             button43.UseVisualStyleBackColor = false;
@@ -737,9 +780,10 @@
             button44.FlatStyle = FlatStyle.Flat;
             button44.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button44.ForeColor = Color.FromArgb(51, 51, 51);
-            button44.Location = new Point(310, 699);
+            button44.Location = new Point(229, 563);
+            button44.Margin = new Padding(3, 2, 3, 2);
             button44.Name = "button44";
-            button44.Size = new Size(46, 53);
+            button44.Size = new Size(40, 40);
             button44.TabIndex = 46;
             button44.Text = "F";
             button44.UseVisualStyleBackColor = false;
@@ -753,9 +797,10 @@
             button45.FlatStyle = FlatStyle.Flat;
             button45.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button45.ForeColor = Color.FromArgb(51, 51, 51);
-            button45.Location = new Point(362, 699);
+            button45.Location = new Point(275, 563);
+            button45.Margin = new Padding(3, 2, 3, 2);
             button45.Name = "button45";
-            button45.Size = new Size(46, 53);
+            button45.Size = new Size(40, 40);
             button45.TabIndex = 47;
             button45.Text = "G";
             button45.UseVisualStyleBackColor = false;
@@ -769,9 +814,10 @@
             button46.FlatStyle = FlatStyle.Flat;
             button46.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button46.ForeColor = Color.FromArgb(51, 51, 51);
-            button46.Location = new Point(415, 699);
+            button46.Location = new Point(321, 563);
+            button46.Margin = new Padding(3, 2, 3, 2);
             button46.Name = "button46";
-            button46.Size = new Size(46, 53);
+            button46.Size = new Size(40, 40);
             button46.TabIndex = 48;
             button46.Text = "H";
             button46.UseVisualStyleBackColor = false;
@@ -785,9 +831,10 @@
             button47.FlatStyle = FlatStyle.Flat;
             button47.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button47.ForeColor = Color.FromArgb(51, 51, 51);
-            button47.Location = new Point(469, 699);
+            button47.Location = new Point(368, 563);
+            button47.Margin = new Padding(3, 2, 3, 2);
             button47.Name = "button47";
-            button47.Size = new Size(46, 53);
+            button47.Size = new Size(40, 40);
             button47.TabIndex = 49;
             button47.Text = "J";
             button47.UseVisualStyleBackColor = false;
@@ -801,9 +848,10 @@
             button48.FlatStyle = FlatStyle.Flat;
             button48.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button48.ForeColor = Color.FromArgb(51, 51, 51);
-            button48.Location = new Point(520, 699);
+            button48.Location = new Point(413, 563);
+            button48.Margin = new Padding(3, 2, 3, 2);
             button48.Name = "button48";
-            button48.Size = new Size(46, 53);
+            button48.Size = new Size(40, 40);
             button48.TabIndex = 50;
             button48.Text = "K";
             button48.UseVisualStyleBackColor = false;
@@ -817,9 +865,10 @@
             button49.FlatStyle = FlatStyle.Flat;
             button49.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button49.ForeColor = Color.FromArgb(51, 51, 51);
-            button49.Location = new Point(573, 699);
+            button49.Location = new Point(459, 563);
+            button49.Margin = new Padding(3, 2, 3, 2);
             button49.Name = "button49";
-            button49.Size = new Size(46, 53);
+            button49.Size = new Size(40, 40);
             button49.TabIndex = 51;
             button49.Text = "L";
             button49.UseVisualStyleBackColor = false;
@@ -833,9 +882,10 @@
             button50.FlatStyle = FlatStyle.Flat;
             button50.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button50.ForeColor = Color.FromArgb(51, 51, 51);
-            button50.Location = new Point(205, 757);
+            button50.Location = new Point(137, 607);
+            button50.Margin = new Padding(3, 2, 3, 2);
             button50.Name = "button50";
-            button50.Size = new Size(46, 53);
+            button50.Size = new Size(40, 40);
             button50.TabIndex = 52;
             button50.Text = "Z";
             button50.UseVisualStyleBackColor = false;
@@ -849,9 +899,10 @@
             button51.FlatStyle = FlatStyle.Flat;
             button51.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button51.ForeColor = Color.FromArgb(51, 51, 51);
-            button51.Location = new Point(257, 757);
+            button51.Location = new Point(183, 607);
+            button51.Margin = new Padding(3, 2, 3, 2);
             button51.Name = "button51";
-            button51.Size = new Size(46, 53);
+            button51.Size = new Size(40, 40);
             button51.TabIndex = 53;
             button51.Text = "X";
             button51.UseVisualStyleBackColor = false;
@@ -865,9 +916,10 @@
             button52.FlatStyle = FlatStyle.Flat;
             button52.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button52.ForeColor = Color.FromArgb(51, 51, 51);
-            button52.Location = new Point(310, 757);
+            button52.Location = new Point(229, 607);
+            button52.Margin = new Padding(3, 2, 3, 2);
             button52.Name = "button52";
-            button52.Size = new Size(46, 53);
+            button52.Size = new Size(40, 40);
             button52.TabIndex = 54;
             button52.Text = "C";
             button52.UseVisualStyleBackColor = false;
@@ -881,9 +933,10 @@
             button54.FlatStyle = FlatStyle.Flat;
             button54.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button54.ForeColor = Color.FromArgb(51, 51, 51);
-            button54.Location = new Point(362, 757);
+            button54.Location = new Point(275, 607);
+            button54.Margin = new Padding(3, 2, 3, 2);
             button54.Name = "button54";
-            button54.Size = new Size(46, 53);
+            button54.Size = new Size(40, 40);
             button54.TabIndex = 55;
             button54.Text = "V";
             button54.UseVisualStyleBackColor = false;
@@ -897,9 +950,10 @@
             button56.FlatStyle = FlatStyle.Flat;
             button56.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button56.ForeColor = Color.FromArgb(51, 51, 51);
-            button56.Location = new Point(415, 757);
+            button56.Location = new Point(321, 607);
+            button56.Margin = new Padding(3, 2, 3, 2);
             button56.Name = "button56";
-            button56.Size = new Size(46, 53);
+            button56.Size = new Size(40, 40);
             button56.TabIndex = 56;
             button56.Text = "B";
             button56.UseVisualStyleBackColor = false;
@@ -913,9 +967,10 @@
             button58.FlatStyle = FlatStyle.Flat;
             button58.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button58.ForeColor = Color.FromArgb(51, 51, 51);
-            button58.Location = new Point(469, 757);
+            button58.Location = new Point(368, 607);
+            button58.Margin = new Padding(3, 2, 3, 2);
             button58.Name = "button58";
-            button58.Size = new Size(46, 53);
+            button58.Size = new Size(40, 40);
             button58.TabIndex = 57;
             button58.Text = "N";
             button58.UseVisualStyleBackColor = false;
@@ -929,9 +984,10 @@
             button59.FlatStyle = FlatStyle.Flat;
             button59.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold);
             button59.ForeColor = Color.FromArgb(51, 51, 51);
-            button59.Location = new Point(520, 757);
+            button59.Location = new Point(413, 607);
+            button59.Margin = new Padding(3, 2, 3, 2);
             button59.Name = "button59";
-            button59.Size = new Size(46, 53);
+            button59.Size = new Size(40, 40);
             button59.TabIndex = 58;
             button59.Text = "M";
             button59.UseVisualStyleBackColor = false;
@@ -945,9 +1001,10 @@
             button60.FlatStyle = FlatStyle.Flat;
             button60.Font = new Font("Microsoft Sans Serif", 12.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button60.ForeColor = Color.FromArgb(66, 66, 66);
-            button60.Location = new Point(102, 757);
+            button60.Location = new Point(47, 607);
+            button60.Margin = new Padding(3, 2, 3, 2);
             button60.Name = "button60";
-            button60.Size = new Size(95, 53);
+            button60.Size = new Size(83, 40);
             button60.TabIndex = 59;
             button60.Text = "enter";
             button60.UseVisualStyleBackColor = false;
@@ -961,9 +1018,10 @@
             button53.FlatStyle = FlatStyle.Flat;
             button53.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button53.ForeColor = Color.FromArgb(66, 66, 66);
-            button53.Location = new Point(573, 757);
+            button53.Location = new Point(459, 607);
+            button53.Margin = new Padding(3, 2, 3, 2);
             button53.Name = "button53";
-            button53.Size = new Size(69, 53);
+            button53.Size = new Size(60, 40);
             button53.TabIndex = 60;
             button53.Text = "⌫";
             button53.UseVisualStyleBackColor = false;
@@ -976,9 +1034,10 @@
             btnMatchInfo.FlatAppearance.BorderSize = 4;
             btnMatchInfo.FlatStyle = FlatStyle.Flat;
             btnMatchInfo.Font = new Font("Segoe UI", 10F);
-            btnMatchInfo.Location = new Point(687, 19);
+            btnMatchInfo.Location = new Point(523, 10);
+            btnMatchInfo.Margin = new Padding(3, 2, 3, 2);
             btnMatchInfo.Name = "btnMatchInfo";
-            btnMatchInfo.Size = new Size(45, 38);
+            btnMatchInfo.Size = new Size(40, 40);
             btnMatchInfo.TabIndex = 61;
             btnMatchInfo.Text = "☰";
             btnMatchInfo.UseVisualStyleBackColor = false;
@@ -986,10 +1045,10 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 33, 33);
-            ClientSize = new Size(761, 935);
+            ClientSize = new Size(575, 701);
             Controls.Add(btnMatchInfo);
             Controls.Add(button21);
             Controls.Add(button47);
@@ -1051,6 +1110,8 @@
             Controls.Add(button26);
             Controls.Add(button39);
             KeyPreview = true;
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
             KeyDown += Form1_KeyDown;

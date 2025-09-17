@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 
 namespace TermoLib
 {
@@ -14,6 +15,7 @@ namespace TermoLib
         public Termo()
         {
             LoadWordsFromFile("palavras_5_letras_sem_acentos.txt");
+            //LoadWordsFromFile("words.txt");
 
             LoadKeyboard();
 
@@ -43,65 +45,67 @@ namespace TermoLib
 
         public void VerifyWord(string word)
         {
-            if (word.Length != 5)
-            {
-                throw new ArgumentException("Incorrect word length");
-            }
-
             var characters = new List<Letter>();
             var targetLetters = DrawedWord.ToCharArray().ToList();
             var tempKeyboard = new Dictionary<char, TypedStatus>();
 
-            for (int i = 0; i < word.Length; i++)
+            if (word.Length == 5)
             {
-                if (word[i] == DrawedWord[i])
+                for (int i = 0; i < word.Length; i++)
                 {
-                    characters.Add(new Letter(word[i], TypedStatus.RIGHT_POSITION));
-                    tempKeyboard[word[i]] = TypedStatus.RIGHT_POSITION;
-                    targetLetters.RemoveAt(targetLetters.IndexOf(word[i]));
-                }
-                else
-                {
-                    characters.Add(null); 
-                }
-            }
-
-            for (int i = 0; i < word.Length; i++)
-            {
-                if (characters[i] == null)
-                {
-                    if (targetLetters.Contains(word[i]))
+                    if (word[i] == DrawedWord[i])
                     {
-                        characters[i] = new Letter(word[i], TypedStatus.WRONG_POSITION);
-                        if (!tempKeyboard.ContainsKey(word[i]) || tempKeyboard[word[i]] != TypedStatus.RIGHT_POSITION)
-                        {
-                            tempKeyboard[word[i]] = TypedStatus.WRONG_POSITION;
-                        }
-
+                        characters.Add(new Letter(word[i], TypedStatus.RIGHT_POSITION));
+                        tempKeyboard[word[i]] = TypedStatus.RIGHT_POSITION;
                         targetLetters.RemoveAt(targetLetters.IndexOf(word[i]));
                     }
                     else
                     {
-                        characters[i] = new Letter(word[i], TypedStatus.NOT_IN_WORD);
-                        if (!tempKeyboard.ContainsKey(word[i]))
+                        characters.Add(null);
+                    }
+                }
+
+                for (int i = 0; i < word.Length; i++)
+                {
+                    if (characters[i] == null)
+                    {
+                        if (targetLetters.Contains(word[i]))
                         {
-                            tempKeyboard[word[i]] = TypedStatus.NOT_IN_WORD;
+                            characters[i] = new Letter(word[i], TypedStatus.WRONG_POSITION);
+                            if (!tempKeyboard.ContainsKey(word[i]) || tempKeyboard[word[i]] != TypedStatus.RIGHT_POSITION)
+                            {
+                                tempKeyboard[word[i]] = TypedStatus.WRONG_POSITION;
+                            }
+
+                            targetLetters.RemoveAt(targetLetters.IndexOf(word[i]));
+                        }
+                        else
+                        {
+                            characters[i] = new Letter(word[i], TypedStatus.NOT_IN_WORD);
+                            if (!tempKeyboard.ContainsKey(word[i]))
+                            {
+                                tempKeyboard[word[i]] = TypedStatus.NOT_IN_WORD;
+                            }
                         }
                     }
                 }
-            }
-            foreach (var kvp in tempKeyboard)
-            {
-                if (!Keyboard.ContainsKey(kvp.Key) ||
-                    Keyboard[kvp.Key] == TypedStatus.NOT_TYPED ||
-                    (Keyboard[kvp.Key] == TypedStatus.NOT_IN_WORD && kvp.Value != TypedStatus.NOT_IN_WORD) ||
-                    (Keyboard[kvp.Key] == TypedStatus.WRONG_POSITION && kvp.Value == TypedStatus.RIGHT_POSITION))
+                foreach (var kvp in tempKeyboard)
                 {
-                    Keyboard[kvp.Key] = kvp.Value;
+                    if (!Keyboard.ContainsKey(kvp.Key) ||
+                        Keyboard[kvp.Key] == TypedStatus.NOT_TYPED ||
+                        (Keyboard[kvp.Key] == TypedStatus.NOT_IN_WORD && kvp.Value != TypedStatus.NOT_IN_WORD) ||
+                        (Keyboard[kvp.Key] == TypedStatus.WRONG_POSITION && kvp.Value == TypedStatus.RIGHT_POSITION))
+                    {
+                        Keyboard[kvp.Key] = kvp.Value;
+                    }
                 }
+                Table.Add(characters);
+                CurrentWord++;
             }
-            Table.Add(characters);
-            CurrentWord++;
+            else
+            {
+                return;
+            }
         }
 
         public bool IsWordCorret(string word)

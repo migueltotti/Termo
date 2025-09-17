@@ -415,20 +415,21 @@ namespace Termo
         private void VirtualKeyboard_Enter_Click(object sender, EventArgs e)
         {
             PlayKeySound();
-
-            if (CheckWordsMatch())
-            {
-                MessageBox.Show("Parabéns, você acertou a palavra!");
-                EndMatch();
-            }
-            else if (currentWord == 5 && IsLineFilled())
-            {
-                MessageBox.Show($"Você errou, a palavra certa era: {termo.DrawedWord}");
-                EndMatch();
-            }
-            else if (IsLineFilled())
-            {
-                ChangeCurrentLine();
+            if (IsLineFilled()) {
+                if (CheckWordsMatch())
+                {
+                    MessageBox.Show("Parabéns, você acertou a palavra!");
+                    EndMatch();
+                }
+                else if (currentWord == 5)
+                {
+                    MessageBox.Show($"Você errou, a palavra certa era: {termo.DrawedWord}");
+                    EndMatch();
+                }
+                else if (IsLineFilled())
+                {
+                    ChangeCurrentLine();
+                }
             }
         }
 
