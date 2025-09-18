@@ -2,6 +2,8 @@
 using System.Media;
 using TermoForms;
 using TermoLib;
+using static System.Windows.Forms.AxHost;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Termo
 {
@@ -19,8 +21,12 @@ namespace Termo
         private readonly Color currentCharacterBorderColor = Color.DeepSkyBlue;
         private readonly Color characterEmptyBackgroundColor = Color.White;
 
+        private Timer animationTimer;
+        private int animationStep = 0;
+        private int animationLine = -1;
+        private Point[] originalPositions;
+
         private const string keySoundPath = "Assets\\key_pressdown_sound.wav";
-        private readonly KeySoundPlayer soundPlayer;
 
         public Form1()
         {
@@ -53,7 +59,7 @@ namespace Termo
 
             termo = new TermoLib.Termo();
 
-            //soundPlayer = new KeySoundPlayer(keySoundPath);
+            ConfigureAnimation();
         }
 
         private void InitializeForm()
@@ -131,6 +137,17 @@ namespace Termo
             buttonsMatrix[5, 2] = button28;
             buttonsMatrix[5, 3] = button27;
             buttonsMatrix[5, 4] = button26;
+
+            originalPositions = new Point[30];
+
+            for (int linha = 0; linha < 6; linha++)
+            {
+                for (int coluna = 0; coluna < 5; coluna++)
+                {
+                    // Armazenar posição original
+                    originalPositions[linha * 5 + coluna] = buttonsMatrix[linha, coluna].Location;
+                }
+            }
         }
 
         private void LoadAllowedCharactersSet()
@@ -234,78 +251,16 @@ namespace Termo
             return termo.IsWordCorret(word);
         }
 
-        private void PaintTableWord()
+        private bool IsValidWord()
         {
-            Button tableLetter;
-            var currentWordFromTable = termo.Table[currentWord];
+            string word = "";
 
             for (int i = 0; i < 5; i++)
             {
-                tableLetter = buttonsMatrix[currentWord, i];
-
-                var color = PaintLetter(currentWordFromTable[i].Status, false); // false = não é teclado virtual
-
-                tableLetter.BackColor = color;
-                tableLetter.FlatAppearance.BorderColor = color;
-                tableLetter.ForeColor = Color.White;
+                word += buttonsMatrix[currentWord, i].Text;
             }
-        }
 
-        private void PaintVirtualKeyBoard()
-        {
-            Button virtualKeyBoardLetter;
-
-            foreach (var keyBoardLetter in termo.Keyboard)
-            {
-                if (keyboardButtons.TryGetValue(keyBoardLetter.Key, out virtualKeyBoardLetter))
-                {
-                    var color = PaintLetter(keyBoardLetter.Value, true);
-
-                    virtualKeyBoardLetter.BackColor = color;
-                    virtualKeyBoardLetter.FlatAppearance.BorderColor = color;
-                    if (color == ColorTranslator.FromHtml("#333333"))
-                    {
-                        virtualKeyBoardLetter.ForeColor = Color.White;
-                    }
-                    else if (color == Color.FromArgb(224, 224, 224))
-                    {
-                        virtualKeyBoardLetter.ForeColor = Color.Black;
-                    }
-                    else
-                    {
-                        virtualKeyBoardLetter.ForeColor = Color.White;
-                    }
-                }
-            }
-        }
-
-        private Color PaintLetter(TypedStatus letterTypedStatus, bool isVirtualKeyboard = false)
-        {
-            return letterTypedStatus switch
-            {
-                TypedStatus.NOT_TYPED => isVirtualKeyboard ? Color.FromArgb(224, 224, 224) : characterEmptyBackgroundColor,
-                TypedStatus.NOT_IN_WORD => ColorTranslator.FromHtml("#333333"),
-                TypedStatus.WRONG_POSITION => ColorTranslator.FromHtml("#B48900"),
-                TypedStatus.RIGHT_POSITION => ColorTranslator.FromHtml("#388E3C"),
-                _ => throw new NotImplementedException(),
-            };
-        }
-
-        private void PlayKeySound()
-        {
-            //soundPlayer.PlayKeySound();
-
-            using var player = new SoundPlayer(keySoundPath);
-
-            player.Play();
-        }
-
-        private void ShowMatchsInformationCard()
-        {
-            using CardForm card = new CardForm();
-
-            // Exibe o card como modal
-            DialogResult result = card.ShowDialog(this);
+            return termo.IsValidWord(word);
         }
 
         private bool IsLineFilled()
@@ -391,6 +346,190 @@ namespace Termo
             termo = new TermoLib.Termo();
         }
 
+        private void PaintTableWord()
+        {
+            Button tableLetter;
+            var currentWordFromTable = termo.Table[currentWord];
+
+            for (int i = 0; i < 5; i++)
+            {
+                tableLetter = buttonsMatrix[currentWord, i];
+
+                var color = PaintLetter(currentWordFromTable[i].Status, false); // false = não é teclado virtual
+
+                tableLetter.BackColor = color;
+                tableLetter.FlatAppearance.BorderColor = color;
+                tableLetter.ForeColor = Color.White;
+            }
+        }
+
+        private void PaintVirtualKeyBoard()
+        {
+            Button virtualKeyBoardLetter;
+
+            foreach (var keyBoardLetter in termo.Keyboard)
+            {
+                if (keyboardButtons.TryGetValue(keyBoardLetter.Key, out virtualKeyBoardLetter!))
+                {
+                    var color = PaintLetter(keyBoardLetter.Value, true);
+
+                    virtualKeyBoardLetter.BackColor = color;
+                    virtualKeyBoardLetter.FlatAppearance.BorderColor = color;
+                    if (color == ColorTranslator.FromHtml("#333333"))
+                    {
+                        virtualKeyBoardLetter.ForeColor = Color.White;
+                    }
+                    else if (color == Color.FromArgb(224, 224, 224))
+                    {
+                        virtualKeyBoardLetter.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        virtualKeyBoardLetter.ForeColor = Color.White;
+                    }
+                }
+            }
+        }
+
+        private Color PaintLetter(TypedStatus letterTypedStatus, bool isVirtualKeyboard = false)
+        {
+            return letterTypedStatus switch
+            {
+                TypedStatus.NOT_TYPED => isVirtualKeyboard ? Color.FromArgb(224, 224, 224) : characterEmptyBackgroundColor,
+                TypedStatus.NOT_IN_WORD => ColorTranslator.FromHtml("#333333"),
+                TypedStatus.WRONG_POSITION => ColorTranslator.FromHtml("#B48900"),
+                TypedStatus.RIGHT_POSITION => ColorTranslator.FromHtml("#388E3C"),
+                _ => throw new NotImplementedException(),
+            };
+        }
+
+        private void PlayKeySound()
+        {
+            using var player = new SoundPlayer(keySoundPath);
+
+            player.Play();
+        }
+
+        private void ShowMatchsInformationCard()
+        {
+            using CardForm card = new CardForm();
+
+            // Exibe o card como modal
+            DialogResult result = card.ShowDialog(this);
+        }
+
+        private async Task DoInvalidWordAnimation()
+        {
+            if (animationLine != -1) return; // Evitar animações simultâneas
+
+            animationLine = currentWord;
+            animationStep = 0;
+
+            // Primeiro: mudança de cor para vermelho
+            await ChangeLineColor(animationLine, Color.FromArgb(220, 20, 60), Color.DarkRed, 100); // Vermelho
+
+            // Depois: animação de shake
+            animationTimer.Start();
+        }
+
+        private void ConfigureAnimation()
+        {
+            animationTimer = new Timer
+            {
+                Interval = 50 // 50ms para animação suave
+            };
+            animationTimer.Tick += AnimationTimer_Tick;
+        }
+
+        private async Task ChangeLineColor(int line, Color backColor, Color borderColor, int duration)
+        {
+            // Mudar cor de todos os botões da linha
+            for (int column = 0; column < 5; column++)
+            {
+                var currentButton = buttonsMatrix[line, column];
+
+                currentButton.BackColor = backColor;
+                currentButton.FlatAppearance.BorderColor = borderColor;
+            }
+
+            // Aguardar duração especificada
+            await Task.Delay(duration);
+        }
+
+        private void AnimationTimer_Tick(object sender, EventArgs e)
+        {
+            if (animationLine == -1) return;
+
+            int lineShift = 0;
+
+            // Padrão de shake: esquerda, direita, esquerda, centro
+            switch (animationStep)
+            {
+                case 0:
+                    lineShift = -8; // Esquerda
+                    break;
+                case 1:
+                    lineShift = 8;  // Direita
+                    break;
+                case 2:
+                    lineShift = -6; // Esquerda (menor)
+                    break;
+                case 3:
+                    lineShift = 6;  // Direita (menor)
+                    break;
+                case 4:
+                    lineShift = -4; // Esquerda (ainda menor)
+                    break;
+                case 5:
+                    lineShift = 4;  // Direita (ainda menor)
+                    break;
+                case 6:
+                    lineShift = 0;  // Volta ao centro
+                    break;
+            }
+
+            // Aplicar deslocamento a toda linha
+            for (int column = 0; column < 5; column++)
+            {
+                Point originalPosition = originalPositions[animationLine * 5 + column];
+                buttonsMatrix[animationLine, column].Location = new Point(
+                    originalPosition.X + lineShift,
+                    originalPosition.Y
+                );
+            }
+
+            animationStep++;
+
+            // Finalizar animação
+            if (animationStep > 6)
+            {
+                animationTimer.Stop();
+                EndAnimation();
+            }
+        }
+
+        private async void EndAnimation()
+        {
+            // Restaurar posições originais
+            for (int collumn = 0; collumn < 5; collumn++)
+            {
+                buttonsMatrix[animationLine, collumn].Location = originalPositions[animationLine * 5 + collumn];
+            }
+
+            // Aguardar um pouco antes de restaurar a cor
+            await Task.Delay(200);
+
+            // Restaurar cor original
+            await ChangeLineColor(animationLine, Color.FromArgb(33, 33, 33), Color.White, 0);
+
+            var currentButton = buttonsMatrix[currentWord, currentCharacter];
+            currentButton.FlatAppearance.BorderColor = currentCharacterBorderColor;
+            currentButton.FlatAppearance.BorderSize = 3;
+            currentButton.BackColor = Color.FromArgb(33, 33, 33);
+
+            animationLine = -1;
+        }
+
         // Método para capturar enter
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -412,6 +551,10 @@ namespace Termo
                     lblWL.Text = "Derrota";
                     lblWL.ForeColor = Color.Red;
                     //EndMatch();
+                }
+                else if(!IsValidWord())
+                {
+                    DoInvalidWordAnimation();
                 }
                 else
                 {
@@ -444,7 +587,7 @@ namespace Termo
         private void VirtualKeyboard_Enter_Click(object sender, EventArgs e)
         {
             PlayKeySound();
-            if (IsLineFilled())
+            if (IsLineFilled() && IsValidWord())
             {
                 if (CheckWordsMatch())
                 {
@@ -461,10 +604,14 @@ namespace Termo
                     lblWL.ForeColor = Color.Red;
                     //EndMatch();
                 }
-                else if (IsLineFilled())
+                else
                 {
                     ChangeCurrentLine();
                 }
+            }
+            else if(IsLineFilled() && !IsValidWord())
+            {
+                DoInvalidWordAnimation();
             }
         }
 

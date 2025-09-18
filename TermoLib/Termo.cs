@@ -5,7 +5,7 @@ namespace TermoLib
 {
     public class Termo  
     {
-        public List<string> Words = [];
+        public HashSet<string> Words = new HashSet<string>((int)StringComparison.InvariantCultureIgnoreCase);
         //public char[,] table;
         public List<List<Letter>> Table = [];
         public string DrawedWord;
@@ -24,7 +24,15 @@ namespace TermoLib
 
         public void LoadWordsFromFile(string fileName)
         {
-            Words = File.ReadAllLines(fileName).ToList();
+            //Words = File.ReadAllLines(fileName).ToList();
+
+            using StreamReader sr = new StreamReader(fileName);
+
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Words.Add(line.ToUpper());
+            }
         }
 
         private void LoadKeyboard()
@@ -40,7 +48,12 @@ namespace TermoLib
             Random rdn = new Random();
             var index = rdn.Next(0, Words.Count);
 
-            DrawedWord = Words[index];
+            DrawedWord = Words.ToList()[index];
+        }
+
+        public bool IsValidWord(string word)
+        {
+            return Words.Contains(word.ToUpper());
         }
 
         public void VerifyWord(string word)
