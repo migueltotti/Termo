@@ -1,4 +1,5 @@
-﻿using System.Drawing.Drawing2D;
+﻿using NHunspell;
+using System.Drawing.Drawing2D;
 using System.Media;
 using TermoForms;
 using TermoLib;
@@ -26,12 +27,17 @@ namespace Termo
         private int animationLine = -1;
         private Point[] originalPositions;
 
+        private Hunspell hunspell;
+
         private const string keySoundPath = "Assets\\key_pressdown_sound.wav";
 
         public Form1()
         {
             InitializeComponent();
             InitializeForm();
+
+            // inicializa o NHunspell com dicionario portugues
+            hunspell = new Hunspell("pt_BR.aff", "pt_BR.dic");
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -260,8 +266,18 @@ namespace Termo
                 word += buttonsMatrix[currentWord, i].Text;
             }
 
-            return termo.IsValidWord(word);
+            return hunspell.Spell(word.ToLower());
         }
+
+        /*protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                hunspell?.Dispose(); // ← Libera quando o Form for fechado
+                components?.Dispose();
+            }
+            base.Dispose(disposing);
+        }*/
 
         private bool IsLineFilled()
         {

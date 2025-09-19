@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="NHunspell" Version="1.2.5554.16953" />
   </ItemGroup>
 
   <ItemGroup>
